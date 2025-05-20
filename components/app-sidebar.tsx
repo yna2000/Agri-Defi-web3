@@ -1,4 +1,5 @@
-import { Home, Coins, FileText, Cloud, Users, Wallet } from "lucide-react"
+"use client"
+import { Home, Coins, FileText, Cloud, Users, Wallet, BarChart3 } from "lucide-react"
 import {
   Sidebar,
   SidebarContent,
@@ -9,7 +10,8 @@ import {
   SidebarMenuItem,
   SidebarTrigger,
 } from "@/components/ui/sidebar"
-import Link from "next/link"
+import { LoadingLink } from "@/components/loading-link"
+import { usePathname } from "next/navigation"
 import { ConnectWalletButton } from "@/components/connect-wallet-button"
 
 const menuItems = [
@@ -39,6 +41,11 @@ const menuItems = [
     href: "/farmers",
   },
   {
+    title: "Analytics",
+    icon: BarChart3,
+    href: "/analytics",
+  },
+  {
     title: "Wallet & Account",
     icon: Wallet,
     href: "/wallet",
@@ -46,6 +53,8 @@ const menuItems = [
 ]
 
 export function AppSidebar() {
+  const pathname = usePathname()
+
   return (
     <Sidebar>
       <SidebarHeader className="flex items-center justify-between p-4">
@@ -61,11 +70,11 @@ export function AppSidebar() {
         <SidebarMenu>
           {menuItems.map((item) => (
             <SidebarMenuItem key={item.title}>
-              <SidebarMenuButton asChild>
-                <Link href={item.href}>
+              <SidebarMenuButton asChild isActive={pathname === item.href}>
+                <LoadingLink href={item.href}>
                   <item.icon className="h-5 w-5" />
                   <span>{item.title}</span>
-                </Link>
+                </LoadingLink>
               </SidebarMenuButton>
             </SidebarMenuItem>
           ))}

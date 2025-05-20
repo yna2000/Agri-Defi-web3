@@ -1,8 +1,9 @@
-import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Coins, FileText, Cloud, Users } from "lucide-react"
 import Link from "next/link"
 import { ConnectWalletButton } from "@/components/connect-wallet-button"
+import { LoadingLink } from "@/components/loading-link"
+import { LoadingButton } from "@/components/loading-button"
 
 const features = [
   {
@@ -48,9 +49,9 @@ export function LandingPage() {
                 sustainable, and profitable agricultural investments.
               </p>
               <div className="mt-8 flex flex-col sm:flex-row gap-4">
-                <Button asChild size="lg" className="bg-green-600 hover:bg-green-700">
-                  <Link href="/dashboard">Start Investing</Link>
-                </Button>
+                <LoadingButton href="/dashboard" size="lg" className="bg-green-600 hover:bg-green-700">
+                  Start Investing
+                </LoadingButton>
                 <div className="w-full sm:w-auto">
                   <ConnectWalletButton />
                 </div>
@@ -105,12 +106,12 @@ export function LandingPage() {
             returns.
           </p>
           <div className="mt-8 flex justify-center gap-4">
-            <Button asChild size="lg" className="bg-green-600 hover:bg-green-700">
-              <Link href="/dashboard">Explore Tokens</Link>
-            </Button>
-            <Button asChild variant="outline" size="lg">
-              <Link href="/farmers">Meet Our Farmers</Link>
-            </Button>
+            <LoadingButton href="/dashboard" size="lg" className="bg-green-600 hover:bg-green-700">
+              Explore Tokens
+            </LoadingButton>
+            <LoadingButton href="/farmers" variant="outline" size="lg">
+              Meet Our Farmers
+            </LoadingButton>
           </div>
         </div>
       </section>
@@ -129,19 +130,19 @@ export function LandingPage() {
               <h3 className="text-lg font-semibold mb-4">Platform</h3>
               <ul className="space-y-2 text-sm">
                 <li>
-                  <Link href="/dashboard" className="hover:text-white">
+                  <LoadingLink href="/dashboard" className="hover:text-white">
                     Token Investment
-                  </Link>
+                  </LoadingLink>
                 </li>
                 <li>
-                  <Link href="/smart-contracts" className="hover:text-white">
+                  <LoadingLink href="/smart-contracts" className="hover:text-white">
                     Smart Contracts
-                  </Link>
+                  </LoadingLink>
                 </li>
                 <li>
-                  <Link href="/climate-risk" className="hover:text-white">
+                  <LoadingLink href="/climate-risk" className="hover:text-white">
                     Climate Risk
-                  </Link>
+                  </LoadingLink>
                 </li>
               </ul>
             </div>
