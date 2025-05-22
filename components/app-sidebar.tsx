@@ -10,7 +10,7 @@ import {
   SidebarMenuItem,
   SidebarTrigger,
 } from "@/components/ui/sidebar"
-import { LoadingLink } from "@/components/loading-link"
+import { EnhancedLoadingLink } from "@/components/enhanced-loading-link"
 import { usePathname } from "next/navigation"
 import { ConnectWalletButton } from "@/components/connect-wallet-button"
 
@@ -71,10 +71,10 @@ export function AppSidebar() {
           {menuItems.map((item) => (
             <SidebarMenuItem key={item.title}>
               <SidebarMenuButton asChild isActive={pathname === item.href}>
-                <LoadingLink href={item.href}>
+                <EnhancedLoadingLink href={item.href}>
                   <item.icon className="h-5 w-5" />
                   <span>{item.title}</span>
-                </LoadingLink>
+                </EnhancedLoadingLink>
               </SidebarMenuButton>
             </SidebarMenuItem>
           ))}
